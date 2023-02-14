@@ -1,7 +1,6 @@
 import React, { useState, useEffect,useRef } from "react";
 import { FaSearch } from "react-icons/fa";
 import Photo from "./Photo";
-// const clientID = `?client_id=${process.env.REACT_APP_ACCESS_KEY}`
 const clientID = `?client_id=yJtA8rHjVcmsnnseFdrgu2XoS4DgDs7zwWOn76XTowI`;
 const mainUrl = `https://api.unsplash.com/photos/`;
 const searchUrl = `https://api.unsplash.com/search/photos/`;
@@ -60,8 +59,7 @@ const mounted=useRef(false)
 /* useEffect--------------------------------------- */
   useEffect(() => {
     fetchImages();
-  }, [page]); //يعني اعتمادك علي الصفحه لما الصفحه تتتغير غير معااها
-
+  }, [page]);
   useEffect(() => {
     if (!mounted.current) {
       mounted.current = true;
@@ -82,28 +80,6 @@ const mounted=useRef(false)
     window.addEventListener('scroll', event);
     return () => window.removeEventListener('scroll', event);
   }, []);
-
-
-/* useEffect--------------------------------------- */
-  // useEffect(() => {
-  //   const event = window.addEventListener("scroll", () => {
-  //     console.log(`innerHeight ${window.innerHeight}`);
-  //     console.log(`scrolly ${window.scrollY}`);
-  //     console.log(`body height ${document.body.scrollHeight - 2}`);
-  //     if (
-  //       !loading &&
-  //       window.innerHeight + window.scrollY >= document.body.scrollHeight -2
-  //     ) {
-  //       // دي مالاخر بتعرفه انه في اخر الصفحه
-  //       // عمال علي بطال fetch للداتا تاني عشان ميقعدش يعمل  fetch واستخدمها انه كل مايوصل لاخر الصفحه يعمل
-  //       setPage((oldPage) => {
-  //         console.log({oldPage})
-  //         return oldPage + 1;
-  //       });
-  //     }
-  //   });
-  //   return window.removeEventListener("scroll", event);
-  // }, []);
 
 /* handleSubmit--------------------------------------- */
   const handleSubmit = (e) => {
